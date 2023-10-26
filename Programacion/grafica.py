@@ -3,12 +3,12 @@ import matplotlib.pyplot as plt
 # Función para filtrar datos según el rango de horas
 def filtrar_datos(hora_inicio, hora_fin):
     datos_filtrados = []
-    with open("datos.dat", "r") as archivo:
+    with open("B_DIA1.TXT", "r") as archivo:
         for linea in archivo:
             partes = linea.strip().split(',')
-            hora_actual = partes[1]
+            hora_actual = partes[0]
             if hora_inicio <= hora_actual <= hora_fin:
-                humedad, temperatura, co2 = float(partes[2]), float(partes[3]), float(partes[4])
+                humedad, temperatura, co2 = float(partes[1]), float(partes[2]), float(partes[3])
                 datos_filtrados.append((hora_actual, humedad, temperatura, co2))
     return datos_filtrados
 
